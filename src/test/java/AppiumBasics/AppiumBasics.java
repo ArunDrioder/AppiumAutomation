@@ -1,5 +1,6 @@
 package AppiumBasics;
 
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
@@ -25,6 +26,7 @@ public class AppiumBasics
         options.setDeviceName("Arun");
         options.setApp("C:\\Users\\arunp\\IdeaProjects\\AppiumAutomation\\src\\test\\java\\resources\\ApiDemos-debug.apk");
         AndroidDriver driver = new AndroidDriver(new URI("http://127.0.0.1:4723").toURL(),options);
+        driver.findElement(AppiumBy.accessibilityId("Preference")).click();
         driver.quit();
         service.stop();
     }
