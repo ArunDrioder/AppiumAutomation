@@ -5,6 +5,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -16,10 +17,19 @@ import java.net.URL;
 public class AppiumBasics extends BaseTest
 {
     @Test
-    public void setWifiName() throws MalformedURLException, URISyntaxException {
+    public void setWifiName() throws MalformedURLException, URISyntaxException, InterruptedException {
 
 
         driver.findElement(AppiumBy.accessibilityId("Preference")).click();
+        driver.findElement(By.xpath("//android.widget.TextView[@content-desc=\"3. Preference dependencies\"]")).click();
+        driver.findElement(By.id("android:id/checkbox")).click();
+        driver.findElement(By.xpath("(//android.widget.RelativeLayout)[2]")).click();
+        driver.findElement(By.id("android:id/edit")).sendKeys("Airtel_Arun_5GHz");
+        //driver.findElement(By.id("android:id/button1")).click();
+        driver.findElements(AppiumBy.className("android.widget.Button")).get(1).click();
+
+
+
 
     }
 }
